@@ -19,3 +19,23 @@
   border: 1px solid var(--main-light-color);
   transition: color 300ms ease-in-out, border 300ms ease-in-out;
 }
+
+.btn--circle:before {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+.btn--circle:hover:before {
+  left: -96px;
+  top: -96px;
+  right: -96px;
+  bottom: -96px;
+}
+
+.btn--circle:hover {
+  color: var(--main-dark-color);
+  border: none;
+}
+

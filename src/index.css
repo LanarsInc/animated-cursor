@@ -3,6 +3,9 @@
   --main-light-color: #fff;
   --secondary-light-color: #d3d3d3;
   --main-font-family: 'Inter', sans-serif;
+  --cursor-border-radius: 50%;
+  --cursor-transition: 300ms ease;
+  --cursor-width: 12px;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -32,6 +35,7 @@ body {
   justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 h1 {
@@ -45,10 +49,11 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 30px 20px;
+  margin: 0 20px;
 }
 
 .magnetic-framer {
   z-index: 10;
   position: relative;
 }
+

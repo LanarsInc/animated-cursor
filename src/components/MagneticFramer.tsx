@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 const MagneticFramer = ({ children }: { children: ReactNode }) => {
   const ref = useRef<null | HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const cursor = document.getElementById('cursor-dot');
 
   const handleMouse = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const { clientX, clientY } = e;
@@ -18,10 +19,21 @@ const MagneticFramer = ({ children }: { children: ReactNode }) => {
     const middleY = normalizedY * 5;
 
     setPosition({ x: middleX, y: middleY });
+
+    const scaleWidth = 1 - Math.abs(normalizedX) * 0.1;
+    const scaleHeight = 1 - Math.abs(normalizedY) * 0.1;
+    if (cursor) {
+      cursor!.style.willChange = 'transform';
+      cursor!.style.transform = `translate(${middleX}px, ${middleY}px) scale(${scaleHeight}, ${scaleWidth})`;
+    }
   };
 
   const reset = () => {
     setPosition({ x: 0, y: 0 });
+    if (cursor) {
+      cursor!.style.transform = '';
+      cursor!.style.willChange = 'auto';
+    }
   };
 
   const { x, y } = position;

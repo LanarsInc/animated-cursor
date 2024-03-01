@@ -1,3 +1,4 @@
+import AnimatedCursor from './components/AnimatedCursor';
 import Button from './components/Button/index.tsx';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
         </h1>
         <Button />
       </section>
+      <AnimatedCursor />
     </>
   );
 }

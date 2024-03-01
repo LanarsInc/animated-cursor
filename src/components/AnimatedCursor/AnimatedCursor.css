@@ -1,0 +1,40 @@
+#cursor-dot {
+  z-index: 9;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  will-change: auto;
+  rotate: none;
+  scale: none;
+  width: var(--cursor-width);
+  height: var(--cursor-width);
+  border-radius: var(--cursor-border-radius);
+  transform: translate(-50%, -50%);
+  transition: opacity 500ms ease-in-out, background 400ms ease-in-out;
+}
+
+#cursor-dot:before {
+  content: '';
+  position: absolute;
+  top: -24px;
+  left: -24px;
+  display: block;
+  width: calc(var(--cursor-width) * 4);
+  height: calc(var(--cursor-width) * 4);
+  transform: scale(0.2);
+  background: var(--main-light-color);
+  border-radius: var(--cursor-border-radius);
+  transition: transform var(--cursor-transition);
+}
+
+#cursor-dot.active {
+  width: calc(var(--cursor-width) * 4);
+  height: calc(var(--cursor-width) * 4);
+}
+
+#cursor-dot.active:before {
+  transform: scale(1.3) !important;
+}
+
