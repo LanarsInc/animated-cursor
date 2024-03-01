@@ -1,0 +1,21 @@
+.btn {
+  font-family: var(--main-font-family);
+  font-size: 1em;
+  z-index: 9;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn--circle {
+  width: 48px;
+  height: 48px;
+  padding: 5px;
+  background-color: transparent;
+  color: var(--main-light-color);
+  border-radius: 50%;
+  border: 1px solid var(--main-light-color);
+  transition: color 300ms ease-in-out, border 300ms ease-in-out;
+}

@@ -1,3 +1,5 @@
+import Button from './components/Button/index.tsx';
+
 function App() {
   return (
     <>
@@ -6,9 +8,7 @@ function App() {
           Animated Cursor <br />
           React Component
         </h1>
-        <div className="container">
-          <button>Click</button>
-        </div>
+        <Button />
       </section>
     </>
   );
