@@ -4,10 +4,6 @@
 
 ### Made in [LANARS](https://lanars.com/)
 
-# Preview
-
-https://github.com/LanarsInc/react-gradient-generator/assets/112958445/eb3f6c3b-43e7-445e-ac15-a62422660b52
-
 # Overview and Motivation
 
 This repo provides implementation of static site using React with:
