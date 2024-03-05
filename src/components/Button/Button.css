@@ -28,14 +28,13 @@
 }
 
 .btn--circle:hover:before {
-  left: -96px;
-  top: -96px;
-  right: -96px;
-  bottom: -96px;
+  left: -48px;
+  top: -48px;
+  right: -48px;
+  bottom: -48px;
 }
 
 .btn--circle:hover {
   color: var(--main-dark-color);
   border: none;
 }
-
