@@ -105,6 +105,12 @@ const AnimatedCursor = () => {
         cursorEnlarged.current = false;
         toggleCursorSize(el);
       });
+      el.addEventListener('click', () => {
+        cursorDot.current!.classList.toggle('active-click');
+        setTimeout(() => {
+          cursorDot.current!.classList.toggle('active-click');
+        }, 500);
+      });
     });
   };
 

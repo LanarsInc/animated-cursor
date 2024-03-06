@@ -1,7 +1,7 @@
 :root {
   --main-dark-color: #212121;
   --main-light-color: #fff;
-  --secondary-light-color: #d3d3d3;
+  --secondary-color: #ed5517;
   --main-font-family: 'Inter', sans-serif;
   --cursor-border-radius: 50%;
   --cursor-transition: 300ms ease;
@@ -56,4 +56,3 @@ h1 {
   z-index: 10;
   position: relative;
 }
-

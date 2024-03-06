@@ -38,3 +38,8 @@
   transform: scale(1.3) !important;
 }
 
+#cursor-dot.active-click:before {
+  background: var(--secondary-color);
+  transition: background var(--cursor-transition);
+}
+
