@@ -1,9 +1,8 @@
 # Animated cursor
-
+### You can check it out [[here](https://react-gradient-generator.lanars-open-source.com/)](https://animated-cursor.lanars-open-source.com/)
 ### Made in [LANARS](https://lanars.com/)
 
 # Overview and Motivation
-
 This repo provides implementation of static site using React with:
 
 - [Vite](https://vitejs.dev/)
@@ -17,4 +16,3 @@ Run **_npm run dev_** a basic development server
 # Build
 
 Run **_npm run build_** to build the project
-
