@@ -1,5 +1,5 @@
 # Animated cursor
-### You can check it out [here](https://react-gradient-generator.lanars-open-source.com/)
+### You can check it out [here](https://animated-cursor.lanars-open-source.com/)
 ### Made in [LANARS](https://lanars.com/)
 
 # Overview and Motivation
