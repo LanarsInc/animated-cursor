@@ -66,8 +66,8 @@ const AnimatedCursor = () => {
     if (previousTimeRef.current !== undefined && !cursorEnlarged.current) {
       x += (endX - x) / 2;
       y += (endY - y) / 2;
-      cursorDot.current!.style.top = y + 6 + 'px';
-      cursorDot.current!.style.left = x + 6 + 'px';
+      cursorDot.current!.style.top = y + 'px';
+      cursorDot.current!.style.left = x + 'px';
     }
     previousTimeRef.current = time;
     requestRef.current = requestAnimationFrame(animateDot);
@@ -85,9 +85,11 @@ const AnimatedCursor = () => {
   const toggleCursorSize = (el: HTMLButtonElement | Element) => {
     if (cursorEnlarged.current && el) {
       const { width, height, top, left } = el!.getBoundingClientRect();
+      const centerX = left + width / 2;
+      const centerY = top + height / 2;
       cursorDot.current!.className = 'active';
-      cursorDot.current!.style.top = top + height / 2 + 'px';
-      cursorDot.current!.style.left = left + width / 2 + 'px';
+      cursorDot.current!.style.top = centerY + 'px';
+      cursorDot.current!.style.left = centerX + 'px';
     } else {
       cursorDot.current!.classList.remove('active');
       cursorDot.current!.style.top = '0px';
@@ -104,6 +106,12 @@ const AnimatedCursor = () => {
       el.addEventListener('mouseleave', () => {
         cursorEnlarged.current = false;
         toggleCursorSize(el);
+      });
+      el.addEventListener('click', () => {
+        cursorDot.current!.classList.add('active-click');
+        setTimeout(() => {
+          cursorDot.current!.classList.remove('active-click');
+        }, 300);
       });
     });
   };
