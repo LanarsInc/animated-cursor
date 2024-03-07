@@ -7,12 +7,17 @@ const MagneticFramer = ({ children }: { children: ReactNode }) => {
   const cursor = document.getElementById('cursor-dot');
 
   const handleMouse = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const { clientX, clientY, pageX, pageY } = e;
+    const { clientX, clientY } = e;
     const { height, width, left, top } = ref.current!.getBoundingClientRect();
 
     //horizontal center point (X-axis) and vertical center point (Y-axis)
     const centerX = left + width / 2;
     const centerY = top + height / 2;
+
+    //distance between the cursor position and the center of the element
+    const dx = Math.pow(centerX - clientX, 2);
+    const dy = Math.pow(centerY - clientY, 2);
+    const distance = Math.sqrt(dx + dy);
 
     /*
     the distance between the cursor position (clientX, clientY)
@@ -22,25 +27,11 @@ const MagneticFramer = ({ children }: { children: ReactNode }) => {
     const offsetClientY = clientY - centerY;
 
     /*
-    the distance between the cursor position (clientX, clientY)
-    and the center of the element (relative to the whole document)
-    */
-    const offsetDocumentX = pageX - ref.current!.offsetLeft;
-    const offsetDocumentY = pageY - ref.current!.offsetTop;
-
-    /*
     normalized values of the mouse cursor deviation
     to the center of the element
     */
     const normalizedX = offsetClientX / (width / 2);
     const normalizedY = offsetClientY / (height / 2);
-
-    /*
-    normalized values of the mouse cursor deviation
-    to the top left corner of the page.
-    */
-    const normalizedDocumentX = offsetDocumentX / (width / 2);
-    const normalizedDocumentY = offsetDocumentY / (height / 2);
 
     /*
     these values are scaled by 5 to increase the effect
@@ -57,20 +48,7 @@ const MagneticFramer = ({ children }: { children: ReactNode }) => {
     if (cursor) {
       cursor.style.willChange = 'transform';
       cursor.style.transform = `translate(${middleX}px, ${middleY}px) rotate(${angle}rad)`;
-      const scaleWidth = 1 - Math.abs(normalizedX) * 0.1;
-      const scaleHeight = 1 - Math.abs(normalizedY) * 0.1;
-      const scaleWidthDocument = 1 - Math.abs(normalizedDocumentX) * 0.1;
-      const scaleHeightDocument = 1 - Math.abs(normalizedDocumentY) * 0.1;
-
-      cursor.style.transform += `scale(${
-        scaleWidth < scaleHeight
-          ? Math.max(scaleWidth, scaleWidthDocument)
-          : Math.max(scaleHeight, scaleHeightDocument)
-      }, ${
-        scaleWidth < scaleHeight
-          ? Math.max(scaleHeight, scaleHeightDocument)
-          : Math.max(scaleWidth, scaleWidthDocument)
-      })`;
+      cursor.style.transform += `scale(${1 - distance * 0.005}, 1)`;
     }
   };
 

@@ -26,14 +26,15 @@
   transform: scale(0.2);
   background: var(--main-light-color);
   border-radius: var(--cursor-border-radius);
-  transition: transform var(--cursor-transition);
+  transition: all var(--cursor-transition);
 }
 
 #cursor-dot.active:before {
-  transform: scale(1.4) !important;
+  transform: scale(1.3) !important;
 }
 
 #cursor-dot.active-click:before {
   background: var(--secondary-color);
-  transition: background var(--cursor-transition);
+  transform: scale(1.2) !important;
 }
+
