@@ -2,6 +2,9 @@
 ### You can check it out [here](https://animated-cursor.lanars-open-source.com/)
 ### Made in [LANARS](https://lanars.com/)
 
+# Preview
+https://github.com/user-attachments/assets/68989b78-bf7c-432a-99f8-8844263bd96d
+
 # Overview and Motivation
 This repo provides implementation of static site using React with:
 
